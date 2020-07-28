@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,NowScoreDelegate {
+   
+    
 
     @IBOutlet weak var imageView: UIImageView!
     
@@ -25,20 +27,42 @@ class ViewController: UIViewController {
     //IBActionで検知した正答が、どちらなのかを取得する変数
     var pickedAnswer = false
     
+    var soundFile = SoundFile()
+    
+    
+    
     //modalで戻ってきた時に初期値へ戻す
     override func viewDidLoad() {
         super.viewDidLoad()
-     correctCount = 0
-     wrongCount = 0
-     questionNumber = 0
+//     correctCount = 0
+//     wrongCount = 0
+//     questionNumber = 0
+        
+       
+        
+        
         
         imageView.image = UIImage(named: imagesList.list[0].imageText)
         //model folder内の設計図.imageListクラス内のプロパティが使える
+        
+        
+        if UserDefaults.standard.object(forKey: "beforeCount") != nil{
+            
+            maxScore = UserDefaults.standard.object(forKey: "beforeCount") as! Int
+            
+            
+ 
+        }
+        maxScoreLabel.text = String(maxScore)
+        //maxScoreに保存されているbeforeCountの値を入れる
         
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        correctCount = 0
+        wrongCount = 0
+        questionNumber = 0
     }
     
     
@@ -47,7 +71,11 @@ class ViewController: UIViewController {
         
         if (sender as AnyObject).tag == 1{
             
-         pickedAnswer = true
+            soundFile.playSound(fileName: "maruSound",extensionName: "mp3")
+      
+            pickedAnswer = true
+            
+
             //○ボタンが押された時
         
             //ユーザが○ボタンを押した
@@ -56,6 +84,9 @@ class ViewController: UIViewController {
             
             
         }else if (sender as AnyObject).tag == 2{
+            
+            soundFile.playSound(fileName: "batsuSound",extensionName: "mp3")
+            
             
           pickedAnswer = false
             //×ボタンが押された時
@@ -91,11 +122,13 @@ class ViewController: UIViewController {
         
         
     }
-    
+  
     func nextQuestions(){
-        
+    
         if questionNumber <= 9{
+            
             questionNumber = questionNumber + 1
+            
             imageView.image = UIImage(named: imagesList.list[questionNumber].imageText)
             
         }else{
@@ -110,6 +143,11 @@ class ViewController: UIViewController {
         
     }
     
+    func nowScore(score: Int) {
+    
+        maxScoreLabel.text = String(score)
+    
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         
@@ -118,7 +156,7 @@ class ViewController: UIViewController {
             let nextVC = segue.destination as! NextViewController
             nextVC.correctedCount = correctCount
             nextVC.wrongCount = wrongCount
-            
+            nextVC.delegate = self
             
         }
         

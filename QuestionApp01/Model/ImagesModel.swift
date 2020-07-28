@@ -13,6 +13,8 @@ class ImagesModel{
     let imageText:String
     let answer:Bool
     
+    //initの時に引数を持ってくる
+    
     init(imageName:String,correctOrNot:Bool) {
         imageText = imageName
         answer = correctOrNot
