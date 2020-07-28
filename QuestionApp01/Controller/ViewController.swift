@@ -175,7 +175,14 @@ class ViewController: UIViewController,NowScoreDelegate {
         
         
         
+    @IBAction func newTurn(_ sender: Any) {
         
+    UserDefaults.standard.removeObject(forKey:"beforeCount")
+        
+     maxScoreLabel.text = String("0")
+        
+    }
+    
     
     
     
