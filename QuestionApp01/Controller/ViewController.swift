@@ -29,18 +29,32 @@ class ViewController: UIViewController,NowScoreDelegate {
     
     var soundFile = SoundFile()
     
+    var changeColor = ChangeColor()
     
+    var gradientLayer = CAGradientLayer()
     
     //modalで戻ってきた時に初期値へ戻す
     override func viewDidLoad() {
         super.viewDidLoad()
-//     correctCount = 0
-//     wrongCount = 0
-//     questionNumber = 0
+
+        gradientLayer = changeColor.changeColor(topR: 0.07, topG: 0.13, topB: 0.26, topAlpha: 1.0, bottomR: 0.54, bottomG: 0.74, bottomB: 0.74, bottomAlpha: 1.0)
         
-       
+        gradientLayer.frame = view.bounds
+        
+        view.layer.insertSublayer(gradientLayer, at: 0)
         
         
+        
+        imageView.layer.cornerRadius = 20.0
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        correctCount = 0
+        wrongCount = 0
+        questionNumber = 0
+    
         
         imageView.image = UIImage(named: imagesList.list[0].imageText)
         //model folder内の設計図.imageListクラス内のプロパティが使える
@@ -58,12 +72,6 @@ class ViewController: UIViewController,NowScoreDelegate {
         
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        correctCount = 0
-        wrongCount = 0
-        questionNumber = 0
-    }
     
     
     
@@ -144,6 +152,8 @@ class ViewController: UIViewController,NowScoreDelegate {
     }
     
     func nowScore(score: Int) {
+        
+        soundFile.playSound(fileName: "sound",extensionName: "mp3")
     
         maxScoreLabel.text = String(score)
     

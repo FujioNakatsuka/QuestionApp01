@@ -23,6 +23,7 @@
 		8DF5E3A824CFD4C600D87A51 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E3A724CFD4C600D87A51 /* Animal.swift */; };
 		8DF5E3AA24CFD50C00D87A51 /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E3A924CFD50C00D87A51 /* Human.swift */; };
 		8DF5E3AC24CFD74A00D87A51 /* WithOutMP3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E3AB24CFD74A00D87A51 /* WithOutMP3.swift */; };
+		8DF5E3AE24CFE9A700D87A51 /* ChangeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E3AD24CFE9A700D87A51 /* ChangeColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		8DF5E3A724CFD4C600D87A51 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		8DF5E3A924CFD50C00D87A51 /* Human.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
 		8DF5E3AB24CFD74A00D87A51 /* WithOutMP3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithOutMP3.swift; sourceTree = "<group>"; };
+		8DF5E3AD24CFE9A700D87A51 /* ChangeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,10 +93,13 @@
 		8D8B4B1124A9941D0069A02C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8DF5E3A724CFD4C600D87A51 /* Animal.swift */,
+				8DF5E3A924CFD50C00D87A51 /* Human.swift */,
 				8D677C4124A9C1D8009D37F9 /* ImagesList.swift */,
 				8D677C4324A9C6FB009D37F9 /* ImagesModel.swift */,
 				8DF5E3A524CFC83C00D87A51 /* SoundFile.swift */,
 				8DF5E3AB24CFD74A00D87A51 /* WithOutMP3.swift */,
+				8DF5E3AD24CFE9A700D87A51 /* ChangeColor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -114,8 +119,6 @@
 				8D8B4AF724A990A60069A02C /* AppDelegate.swift */,
 				8D8B4AF924A990A60069A02C /* SceneDelegate.swift */,
 				8D8B4AFB24A990A60069A02C /* ViewController.swift */,
-				8DF5E3A724CFD4C600D87A51 /* Animal.swift */,
-				8DF5E3A924CFD50C00D87A51 /* Human.swift */,
 				8D8B4B1424A99A6B0069A02C /* NextViewController.swift */,
 			);
 			path = Controller;
@@ -196,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D8B4AFC24A990A60069A02C /* ViewController.swift in Sources */,
+				8DF5E3AE24CFE9A700D87A51 /* ChangeColor.swift in Sources */,
 				8DF5E3A824CFD4C600D87A51 /* Animal.swift in Sources */,
 				8DF5E3A624CFC83C00D87A51 /* SoundFile.swift in Sources */,
 				8D8B4B1524A99A6B0069A02C /* NextViewController.swift in Sources */,
